@@ -23,14 +23,13 @@ function Login() {
   // 校验成功自动收集表单数据
   async function onFinish(values) {
     console.log('Success:', values);
-    console.log(values)
-    const { mobile, code } = values
+    const { username, password } = values
     // value：放置的是所有表单项中用户输入的内容
     // todo: 登录
     try {
       await loginStore.getToken({ // 因为Store里面用async修饰了，所以可以返回一个Promise对象
-        mobile,
-        code
+        username,
+        password
       })
       Navigate('/', {replace:true})
       // 提示用户
