@@ -56,11 +56,12 @@ function Login() {
           style={{
             maxWidth: 600,
           }}
+          validateTrigger={['onBlur', 'onChange']}
           initialValues={{
             remember: true,
+            username: '13811111111',
+            password: '246810'
           }}
-
-          validateTrigger={['onBlur', 'onChange']}
 
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -70,6 +71,7 @@ function Login() {
           <Form.Item
             label="手机号"
             name="username"
+            
             rules={[
               {
                 required: true,

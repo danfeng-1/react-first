@@ -24,13 +24,14 @@ const GeekLayout = () => {
   const location = useLocation()
   // console.log('当前的路由信息location',location.pathname)
 
-  const { userStore, loginStore } = useStore()
+  const { userStore, loginStore, channelStore } = useStore()
   // useStore.getUserInfo()应该在Hook的副作用里面执行以便获取用户信息，当使用副作用useEfeect带[]表示只在挂载时执行一次
   
 
   useEffect(() => {
     userStore.getUserInfo()
-  }, [userStore])
+    channelStore.loadChannelList()
+  }, [userStore, channelStore])
 
   // 确定退出
   const navigate = useNavigate()
